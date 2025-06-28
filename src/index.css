@@ -1,60 +1,29 @@
+/* ===========================
+   Global Styles
+=========================== */
 :root {
-  font-family: 'roboto', sans-serif;
-  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
+  line-height: 1.5;
 }
-*{
+
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   scrollbar-width: thin;
   color: #eee;
 }
-nav{
-  width: 90%;
-  font-family: monospace;
-  margin-bottom: 1.5rem;
-}
-nav img{
-  width: 70px;
-  height: auto;
-  border-radius: 100vmax;
-  object-fit: cover;
-}
-nav h1{
-  font-size: 2em;
-  font-weight: 400;
-  margin-bottom: 0.5em;
-}
-body{
+
+body {
   background: url(./assets/background.jpg) no-repeat center center fixed;
   background-size: cover;
-  background-position: relative;
-}
-.overlay{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 120vh;
-  background-color: rgba(0, 0, 0, 0.932);
-  z-index: -1; /* Ensure the overlay is behind other content */
-}
-.sparkline{
-  width: 10%;
-}
-.price-data {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 10px;
 }
 
-.price-data p{
-  margin: 0;
-  font-size: .9em;
-  font-weight: 400;
-}
-
-.container{
+/* ===========================
+   Layout Containers
+=========================== */
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,31 +31,8 @@ body{
   max-width: 100%;
   padding: 20px;
 }
-.header{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5px;
-}
-.header h1{
-  font-size: 4em;
-  margin-bottom: 0.2em;
-}
-.header p{
-  font-size: 1.2em;
-  text-align: center;
-  max-width: 600px;
-  margin-bottom: 1em;
-}
-.coins{
-  width: 100%;
-}
-.coin{
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.app{
+
+.app {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -96,12 +42,77 @@ body{
   padding: 20px;
 }
 
+/* ===========================
+   Overlay
+=========================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120vh;
+  background-color: rgba(0, 0, 0, 0.932);
+  z-index: -1;
+}
+
+/* ===========================
+   Navbar
+=========================== */
+nav {
+  width: 90%;
+  font-family: monospace;
+  margin-bottom: 1.5rem;
+}
+
+nav img {
+  width: 70px;
+  height: auto;
+  border-radius: 100vmax;
+  object-fit: cover;
+}
+
+nav h1 {
+  font-size: 2em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+/* ===========================
+   Header / Hero Section
+=========================== */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.header h1 {
+  font-size: 4em;
+  margin-bottom: 0.2em;
+}
+
+.header p {
+  font-size: 1.2em;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 1em;
+}
+
+/* ===========================
+   Coins List
+=========================== */
+.coins {
+  width: 100%;
+}
+
 .coins ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 25px;
   padding: 0;
 }
+
 ul li {
   display: flex;
   flex-direction: column;
@@ -118,42 +129,98 @@ ul li {
 ul li:hover {
   transform: translateY(-5px);
 }
-ul {
+
+/* ===========================
+   Coin Item
+=========================== */
+.coin {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  padding: 0;
+  align-items: center;
+  gap: 15px;
 }
-li {
-  list-style: none;
-}
+
 li img {
   max-width: 20px;
   height: auto;
   border-radius: 100vmax;
 }
 
+.coin p {
+  font-size: 0.9em;
+}
+
+/* ===========================
+   Price Data / Sparkline
+=========================== */
+.price-data {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.price-data p {
+  margin: 0;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.sparkline {
+  width: 10%;
+}
+
+/* ===========================
+   Preloader
+=========================== */
+.preLoader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #fff;
+}
+
+.preLoader h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  animation: bounce 1s infinite;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===========================
+   Responsive Styles
+=========================== */
 @media (max-width: 600px) {
   .header h1 {
     font-size: 2.5em;
     text-align: center;
   }
+
   .header p {
-    font-size: .8em;
+    font-size: 0.8em;
   }
+
   .app {
     padding: 10px;
   }
-  .coin p{
-    font-size: .7rem;
+
+  .coin p {
+    font-size: 0.7rem;
     margin-bottom: 0.5em;
   }
+
   .price-data {
-    grid-template-rows: repeat(2, 1fr);
     font-size: 0.9em;
   }
-  nav h1{
+
+  nav h1 {
     font-size: 1.2rem;
     font-weight: bold;
   }

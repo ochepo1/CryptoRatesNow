@@ -35,59 +35,63 @@ function App() {
   }, []);
 
   return (
-    
-    <div className="container">
-      <Navbar />
-      <div className="overlay"></div>
-      <div className="app">
-        <div className="header">
-          <h1>Live Crypto Prices</h1>
-          <p>
-            Track real-time cryptocurrency rates and market movements — all in
-            one place.
-          </p>
-        </div>
-        {loading && (
+      <div className="container">
+        <Navbar />
+        <div className="overlay"></div>
+
+        {loading ? (
           <div className="loader">
             <PreLoader />
           </div>
-        )}
-        {!loading && coins.length === 0 && <p>No data available</p>}
-        <div className="coins">
-          <ul>
-            {coins.map((coin, i) => (
-              <li key={i}>
-                <span className="coin">
-                  <img src={coin.image} alt={`${coin.name} logo`} />
-                  <p>
-                    {coin.name} ({coin.symbol.toUpperCase()})
-                  </p>
-                </span>
-                <div className="price-data">
-                  <p>${coin.current_price.toLocaleString()}</p>
+        ) : (
+          <div className="app">
+            <div className="header">
+              <h1>Live Crypto Prices</h1>
+              <p>
+                Track real-time cryptocurrency rates and market movements — all
+                in one place.
+              </p>
+            </div>
 
-                  <Sparklines
-                    data={coin.sparkline_in_7d.price}
-                    width={100}
-                    height={40}
-                    className="sparkline"
-                  >
-                    <SparklinesLine
-                      color={
-                        coin.price_change_percentage_24h >= 0
-                          ? "#7CFC00"
-                          : "#FF6B6B"
-                      }
-                      style={{ fill: "none", strokeWidth: 1 }}
-                    />
-                  </Sparklines>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+            {coins.length === 0 ? (
+              <p>No data available</p>
+            ) : (
+              <div className="coins">
+                <ul>
+                  {coins.map((coin, i) => (
+                    <li key={i}>
+                      <span className="coin">
+                        <img src={coin.image} alt={`${coin.name} logo`} />
+                        <p>
+                          {coin.name} ({coin.symbol.toUpperCase()})
+                        </p>
+                      </span>
+                      <div className="price-data">
+                        <p>${coin.current_price.toLocaleString()}</p>
+                        <Sparklines
+                          data={coin.sparkline_in_7d.price}
+                          width={100}
+                          height={40}
+                          className="sparkline"
+                        >
+                          <SparklinesLine
+                            color={
+                              coin.price_change_percentage_24h >= 0
+                                ? "#7CFC00"
+                                : "#FF6B6B"
+                            }
+                            style={{ fill: "none", strokeWidth: 1 }}
+                          />
+                        </Sparklines>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
       </div>
-    </div>
   );
 }
 

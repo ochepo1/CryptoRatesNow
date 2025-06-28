@@ -7,7 +7,8 @@ import PreLoader from "./components/preLoader"; // Assuming preLoader is a compo
 function App() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currency, setCurrency] = useState("usd"); // Default currency
+  const [currency, setCurrency] = useState("usd");
+  // const [gainers, setGainers] = useState([]);
 
   const API_URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=15&page=1&sparkline=true`;
 
@@ -118,7 +119,6 @@ function App() {
               <option value="uyu">UYU ($U)</option>
             </select>
           </div>
-
           {coins.length === 0 ? (
             <p>No data available</p>
           ) : (
@@ -135,12 +135,28 @@ function App() {
                       </span>
                     </div>
                     <div className="price-data">
-                      <p>
-                        {new Intl.NumberFormat("en-US", {
-                          style: "currency",
-                          currency: currency.toUpperCase(),
-                        }).format(coin.current_price)}
-                      </p>
+                      <div className="gainerandloser">
+                        <p>
+                          {new Intl.NumberFormat("en-US", {
+                            style: "currency",
+                            currency: currency.toUpperCase(),
+                          }).format(coin.current_price)}
+                        </p>
+                        <p
+                          style={{
+                            color:
+                              coin.price_change_percentage_24h >= 0
+                                ? "#7CFC00"
+                                : "#FF6B6B",
+                            fontWeight: "bold",
+                            fontSize: "0.9em",
+                            marginTop: "0.3em",
+                          }}
+                        >
+                          {coin.price_change_percentage_24h >= 0 ? "⬆️" : "⬇️"}{" "}
+                          {coin.price_change_percentage_24h?.toFixed(2)}%
+                        </p>
+                      </div>
                       <Sparklines
                         data={coin.sparkline_in_7d.price}
                         width={100}

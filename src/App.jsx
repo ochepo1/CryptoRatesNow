@@ -70,7 +70,7 @@ function App() {
                           ? "#7CFC00"
                           : "#FF6B6B"
                       }
-                      style={{ fill: "none", strokeWidth: 2 }}
+                      style={{ fill: "none", strokeWidth: 1 }}
                     />
                   </Sparklines>
                 </div>

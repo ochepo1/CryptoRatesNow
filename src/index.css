@@ -27,15 +27,11 @@ body{
 .sparkline{
   width: 10%;
 }
-.price-data{
-  display: grid;
-  grid-template-columns: repeat(1fr, 1fr);
-  align-items: center;
-  justify-self: center;
-  gap: 10px;
-  font-size: 1.2em;
-  font-weight: 300;
+.price-data {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
 }
+
 .price-data p{
   margin: 0;
   font-size: .9em;
@@ -84,29 +80,27 @@ body{
   padding: 20px;
 }
 
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.coins ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+  padding: 0;
 }
 ul li {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: space-between;
-  text-align: start;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  width: 100%;
-  border-radius: 10px;
-  cursor: pointer;
-  background: #eeeeee1e;
+  gap: 10px;
+  padding: 16px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+ul li:hover {
+  transform: translateY(-5px);
 }
 ul {
   display: flex;

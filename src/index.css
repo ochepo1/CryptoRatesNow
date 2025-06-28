@@ -10,6 +10,22 @@
   scrollbar-width: thin;
   color: #eee;
 }
+nav{
+  width: 90%;
+  font-family: monospace;
+  margin-bottom: 1.5rem;
+}
+nav img{
+  width: 70px;
+  height: auto;
+  border-radius: 100vmax;
+  object-fit: cover;
+}
+nav h1{
+  font-size: 2em;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
 body{
   background: url(./assets/background.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -112,7 +128,7 @@ ul {
 li {
   list-style: none;
 }
-img {
+li img {
   max-width: 20px;
   height: auto;
   border-radius: 100vmax;
@@ -136,5 +152,9 @@ img {
   .price-data {
     grid-template-rows: repeat(2, 1fr);
     font-size: 0.9em;
+  }
+  nav h1{
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 }

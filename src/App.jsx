@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import "./App.css";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -34,13 +35,14 @@ function App() {
 
   return (
     <div className="container">
+      <Navbar />
       <div className="overlay"></div>
       <div className="app">
         <div className="header">
-          <h1>Crypto Rates Now</h1>
+          <h1>Live Crypto Prices</h1>
           <p>
-            Welcome to Crypto Rates Now! This is a simple app to check the
-            latest cryptocurrency rates.
+            Track real-time cryptocurrency rates and market movements — all in
+            one place.
           </p>
         </div>
         {loading && <p>Loading...</p>}

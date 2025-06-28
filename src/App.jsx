@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Sparklines, SparklinesLine } from "react-sparklines";
 import "./App.css";
 import Navbar from "./components/Navbar";
+import PreLoader from "./components/preLoader"; // Assuming preLoader is a component
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -34,6 +35,7 @@ function App() {
   }, []);
 
   return (
+    
     <div className="container">
       <Navbar />
       <div className="overlay"></div>
@@ -45,7 +47,11 @@ function App() {
             one place.
           </p>
         </div>
-        {loading && <p>Loading...</p>}
+        {loading && (
+          <div className="loader">
+            <PreLoader />
+          </div>
+        )}
         {!loading && coins.length === 0 && <p>No data available</p>}
         <div className="coins">
           <ul>

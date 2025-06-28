@@ -71,8 +71,51 @@ function App() {
               onChange={(e) => setCurrency(e.target.value)}
             >
               <option value="usd">USD ($)</option>
-              <option value="ngn">NGN (₦)</option>
               <option value="eur">EUR (€)</option>
+              <option value="gbp">GBP (£)</option>
+              <option value="jpy">JPY (¥)</option>
+              <option value="cny">CNY (¥)</option>
+              <option value="inr">INR (₹)</option>
+              <option value="aud">AUD ($)</option>
+              <option value="cad">CAD ($)</option>
+              <option value="chf">CHF (Fr)</option>
+              <option value="rub">RUB (₽)</option>
+              <option value="brl">BRL (R$)</option>
+              <option value="mxn">MXN ($)</option>
+              <option value="krw">KRW (₩)</option>
+              <option value="zar">ZAR (R)</option>
+              <option value="try">TRY (₺)</option>
+              <option value="sar">SAR (﷼)</option>
+              <option value="aed">AED (د.إ)</option>
+              <option value="ils">ILS (₪)</option>
+              <option value="kwd">KWD (د.ك)</option>
+              <option value="qar">QAR (﷼)</option>
+              <option value="ngn">NGN (₦)</option>
+              <option value="egp">EGP (£)</option>
+              <option value="kes">KES (Sh)</option>
+              <option value="ghs">GHS (₵)</option>
+              <option value="etb">ETB (Br)</option>
+              <option value="mad">MAD (د.م.)</option>
+              <option value="tnd">TND (د.ت)</option>
+              <option value="bdt">BDT (৳)</option>
+              <option value="pkr">PKR (₨)</option>
+              <option value="vnd">VND (₫)</option>
+              <option value="thb">THB (฿)</option>
+              <option value="myr">MYR (RM)</option>
+              <option value="idr">IDR (Rp)</option>
+              <option value="lkr">LKR (Rs)</option>
+              <option value="npr">NPR (₨)</option>
+              <option value="sek">SEK (kr)</option>
+              <option value="nok">NOK (kr)</option>
+              <option value="dkk">DKK (kr)</option>
+              <option value="pln">PLN (zł)</option>
+              <option value="huf">HUF (Ft)</option>
+              <option value="czk">CZK (Kč)</option>
+              <option value="ars">ARS ($)</option>
+              <option value="cop">COP ($)</option>
+              <option value="clp">CLP ($)</option>
+              <option value="pen">PEN (S/)</option>
+              <option value="uyu">UYU ($U)</option>
             </select>
           </div>
 
